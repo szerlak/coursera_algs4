@@ -1,3 +1,7 @@
+import edu.princeton.cs.algs4.StdRandom;
+import edu.princeton.cs.algs4.StdStats;
+import edu.princeton.cs.algs4.StdOut;
+
 public class PercolationStats {
     private double[] values;
     private double mean;
@@ -6,6 +10,7 @@ public class PercolationStats {
 
     /**
      * perform T independent experiments on an N-by-N grid
+     * 
      * @param N
      * @param T
      */
@@ -41,6 +46,7 @@ public class PercolationStats {
 
     /**
      * sample mean of percolation threshold
+     * 
      * @return
      */
     public double mean() {
@@ -49,14 +55,16 @@ public class PercolationStats {
 
     /**
      * sample standard deviation of percolation threshold
+     * 
      * @return
      */
     public double stddev() {
         return stdDev;
     }
-    
+
     /**
-     * low  endpoint of 95% confidence interval
+     * low endpoint of 95% confidence interval
+     * 
      * @return
      */
     public double confidenceLo() {
@@ -66,6 +74,7 @@ public class PercolationStats {
 
     /**
      * high endpoint of 95% confidence interval
+     * 
      * @return
      */
     public double confidenceHi() {
@@ -75,6 +84,7 @@ public class PercolationStats {
 
     /**
      * test client
+     * 
      * @param args
      */
     public static void main(String[] args) {
@@ -83,9 +93,9 @@ public class PercolationStats {
 
         int N = Integer.parseInt(args[0]);
         int T = Integer.parseInt(args[1]);
-        
-        if (N <= 0 || T <= 0) throw new IllegalArgumentException();
-        
+
+        if (N <= 0 || T <= 0)
+            throw new IllegalArgumentException();
 
         PercolationStats ps = new PercolationStats(N, T);
         double mean = ps.mean();
